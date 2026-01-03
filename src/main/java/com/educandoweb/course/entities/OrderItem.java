@@ -16,6 +16,7 @@ public class OrderItem implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@EmbeddedId
 	private OrderItemPK id = new OrderItemPK();
 	
@@ -71,6 +72,10 @@ public class OrderItem implements Serializable {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	
+	public Double getSubTotal() {
+		return quantity * price;
 	}
 
 	@Override
